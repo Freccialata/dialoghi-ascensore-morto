@@ -17,5 +17,5 @@ for(int i : Std.range(files_ascensori.size())) {
     1 => ascensori[i].loop;
 }
 
-RampRate.key_listener_loop(ascensori);
-// KbSamplePlay.key_listener_loop(ascensori);
+// RampRate.key_listener_loop(ascensori);
+KbSamplePlay.key_listener_loop(ascensori);
