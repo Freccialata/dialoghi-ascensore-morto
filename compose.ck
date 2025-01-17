@@ -1,3 +1,6 @@
+@import "ramp_rate.ck"
+@import "kb_sample_play.ck"
+
 [me.dir() + "wav/ascensore-1.wav",
 me.dir() + "wav/ascensore-2.wav",
 me.dir() + "wav/ascensore-3.wav",
@@ -14,5 +17,5 @@ for(int i : Std.range(files_ascensori.size())) {
     1 => ascensori[i].loop;
 }
 
-// RampRate.key_listener_loop(ascensori);
-KbSamplePlay.key_listener_loop(ascensori);
+RampRate.key_listener_loop(ascensori);
+// KbSamplePlay.key_listener_loop(ascensori);

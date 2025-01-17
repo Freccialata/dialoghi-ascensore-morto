@@ -33,20 +33,18 @@ public class RampRate {
 
     0 => static int loop_instance;
     0 => static int loop_stop;
-    static Event other_loop_end;
     fun static loop_section(int new_pos, dur sec_dur, SndBuf2 @ a_player) {
         <<<"Loop!", new_pos*1.0/a_player.samples(), sec_dur/1::second>>>;
         1 +=> loop_instance;
         0 => loop_stop;
-        if (loop_instance > 1) {
-            other_loop_end => now;
-        }
-        while (loop_instance == 1 && loop_stop != 1) {
+        while (loop_stop != 1) {
             new_pos => a_player.pos;
             sec_dur => now;
+            if (loop_instance != 1) {
+                break;
+            }
         }
         1 -=> loop_instance;
-        other_loop_end.signal();
         <<<"Stop!", new_pos*1.0/a_player.samples(), sec_dur/1::second, "INSTANCE", loop_instance>>>;
     }
 
