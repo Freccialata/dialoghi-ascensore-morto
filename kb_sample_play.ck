@@ -44,16 +44,13 @@ class SampleAsNote {
     }
 
     fun play_sin() {
-        SinOsc sin_player(freq) => ADSR env => dac;
+        TriOsc sin_player(freq) => ADSR env(70::ms, 400::ms, .2, 400::ms) => dac;
         .12 => sin_player.gain;
         env.keyOn();
-        while (true) {
-            env.releaseTime()+env.attackTime() => now;
-            playOff => now;
-            env.keyOff();
-        }
+        playOff => now;
+        env.keyOff();
+        env.releaseTime() => now;
         sin_player =< env =< dac;
-        <<<"Stopped">>>;
     }
 
     fun play_sample(SndBuf2 @ a_player) {
