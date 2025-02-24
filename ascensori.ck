@@ -10,7 +10,7 @@ public class Ascensori {
     20 => spect.bands;
     0.3 => spect.feedback;
     KasFilter kf;
-    .3 => kf.gain;
+    .9 => kf.gain;
     .2 => kf.resonance;
     .3 => kf.accent;
     5000 => kf.freq;
@@ -22,7 +22,7 @@ public class Ascensori {
                 <<<"Error opening file", files_ascensori[i]>>>;
                 me.exit();
             }
-            // .7 => ascensori[i].gain;
+            .8 => ascensori[i].gain;
             1 => ascensori[i].loop;
         }
     }
@@ -38,8 +38,8 @@ public class Ascensori {
         }
         choice => curr_choice;
         Std.ftoi(ascensori[choice].samples()*pos_percent) => ascensori[choice].pos;
-        // ascensori[choice] => env[choice] => spect => dac;
-        ascensori[choice] => env[choice] => spect => kf => dac;
+        ascensori[choice] => env[choice] => kf => dac;
+        // ascensori[choice] => env[choice] => spect => kf => dac;
         env[choice].keyOn();
         env[choice].attackTime()+env[choice].decayTime() => now;
     }
@@ -51,7 +51,8 @@ public class Ascensori {
         }
         env[choice].keyOff();
         env[choice].releaseTime() => now;
-        ascensori[choice] =< env[choice] =< spect =< kf =< dac;
+        ascensori[choice] =< env[choice] =< kf =< dac;
+        // ascensori[choice] =< env[choice] =< spect =< kf =< dac;
     }
 
     fun change_rate(int choice, float new_rate) {

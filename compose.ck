@@ -44,6 +44,9 @@ class RandomRuntime {
             }
         }
     }
+    fun rate_scrambler() {
+        // TODO
+    }
 }
 
 [me.dir() + "wav/ascensore-1.wav",
@@ -58,12 +61,19 @@ RandomRuntime r;
 spork ~ r.random_sample_choice();
 spork ~ r.random_noise();
 // spork ~ r.kf_sweep();
+// TODO Effetto frammentato rate veloce/lento
 
 // spork ~ a.play_sample(1, 0);
-spork ~ a.play_sample(0, 0);
+// spork ~ a.play_sample(0, 0);
 while(true) {
     Distancer.dist_event => now;
-    (Distancer.dist_event.howClose/10.0)*2 => float norm_dist;
-    <<<norm_dist, "">>>;
-    a.change_rate(a.curr_choice, norm_dist);
+    (Distancer.dist_event.howClose/10.0) => float norm_dist;
+    norm_dist*2 => float rate;
+    <<<rate, "">>>;
+    5000*rate => a.kf.freq;
+    if (rate < .85) {
+
+    } else {
+        a.change_rate(a.curr_choice, rate);
+    }
 }
