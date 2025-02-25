@@ -1,6 +1,6 @@
 public class Ascensori {
     SndBuf2 ascensori[4];
-    ADSR env(400::ms, 400::ms, .8, 100::ms)[4];
+    ADSR env(400::ms, 400::ms, 1, 100::ms)[4];
     Event playOff;
     int curr_choice;
 
@@ -11,7 +11,7 @@ public class Ascensori {
                 <<<"Error opening file", files_ascensori[i]>>>;
                 me.exit();
             }
-            .8 => ascensori[i].gain;
+            1 => ascensori[i].gain;
             1 => ascensori[i].loop;
         }
     }
