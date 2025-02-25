@@ -1,6 +1,16 @@
 @import "distance.ck"
 @import "ascensori.ck"
 
+WvOut2 wave;
+0 => int do_record;
+if( me.args() ) me.arg(0) => Std.atoi => do_record;
+if (do_record) {
+    dac => wave => blackhole;
+    "ascensor_" + do_record + ".wav" => string file_name;
+    <<<"Recording to", file_name>>>;
+    file_name => wave.wavFilename;
+}
+
 Spectacle spect;
 .5 => spect.mix;
 spect.range(100,4100);
