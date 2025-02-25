@@ -4,17 +4,6 @@ public class Ascensori {
     Event playOff;
     int curr_choice;
 
-    Spectacle spect;
-    .5 => spect.mix;
-    spect.range(100,4100);
-    20 => spect.bands;
-    0.3 => spect.feedback;
-    KasFilter kf;
-    .9 => kf.gain;
-    .2 => kf.resonance;
-    .3 => kf.accent;
-    5000 => kf.freq;
-
     fun @construct(string @ files_ascensori[]) {
         for(int i : Std.range(files_ascensori.size())) {
             files_ascensori[i] => ascensori[i].read;
@@ -27,7 +16,7 @@ public class Ascensori {
         }
     }
 
-    fun play_sample(int choice, float pos_percent) {
+    fun play_sample(int choice, float pos_percent, Pan2 my_dac) {
         if (choice < 0 || choice > 3) {
             <<<"Cannot select sample number", choice>>>;
             return;
@@ -38,21 +27,19 @@ public class Ascensori {
         }
         choice => curr_choice;
         Std.ftoi(ascensori[choice].samples()*pos_percent) => ascensori[choice].pos;
-        ascensori[choice] => env[choice] => kf => dac;
-        // ascensori[choice] => env[choice] => spect => kf => dac;
+        ascensori[choice] => env[choice] => my_dac;
         env[choice].keyOn();
         env[choice].attackTime()+env[choice].decayTime() => now;
     }
 
-    fun stop_playing(int choice) {
+    fun stop_playing(int choice, Pan2 my_dac) {
         if (choice < 0 || choice > 3) {
             <<<"Cannot stop sample number", choice>>>;
             return;
         }
         env[choice].keyOff();
         env[choice].releaseTime() => now;
-        ascensori[choice] =< env[choice] =< kf =< dac;
-        // ascensori[choice] =< env[choice] =< spect =< kf =< dac;
+        ascensori[choice] =< env[choice] =< my_dac;
     }
 
     fun change_rate(int choice, float new_rate) {
