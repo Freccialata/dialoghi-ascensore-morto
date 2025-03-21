@@ -8,8 +8,8 @@ use rosc::{OscMessage, OscPacket, OscType};
 use circular_buffer::CircularBuffer;
 
 // Gpio uses BCM pin numbering
-const GPIO_TRIGGER: u8 = 3;
-const GPIO_ECHO: u8 = 2;
+const GPIO_TRIGGER: u8 = 22;
+const GPIO_ECHO: u8 = 27;
 const WINDOW_SIZE: usize = 25;
 const THRESHOLD: usize = 200;
 const START_MAX: f32 = 700.0;
@@ -55,10 +55,10 @@ fn main() -> Result<(), Box<dyn Error>> {
         let norm_distance = distance / curr_max;
         let osc_bytes = rosc::encoder::encode(&OscPacket::Message(OscMessage {
             addr: "/distance".into(),
-            args: vec![OscType::Float(norm_distance)],
+            args: vec![OscType::Float(norm_distance.clamp(0.0, 1.0))],
         }))
         .unwrap();
-        // println!("{:.2} | {:?}", norm_distance, osc_bytes);
+        // println!("{:.2} | {:.2} | {}", distance, norm_distance, curr_max);
         socket
             .send_to(&osc_bytes, to_address)
             .expect("couldn't send data");
