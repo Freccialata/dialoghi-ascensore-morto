@@ -1,5 +1,5 @@
 class Dist extends Event {
-    int howClose;
+    float howClose;
 }
 
 public class Distancer {
@@ -18,7 +18,24 @@ public class Distancer {
                     if (digit_val == 0) {
                         10 => digit_val; // Hack
                     }
-                    digit_val => dist_event.howClose;
+                    digit_val/10.0 => dist_event.howClose;
+                    dist_event.broadcast();
+                }
+            }
+        }
+    }
+
+    fun static osc_listener() {
+        OscIn oin;
+        OscMsg msg;
+        7015 => oin.port;
+        oin.addAddress( "/distance" );
+        while( true )
+        {
+            oin => now;
+            while( oin.recv(msg) ) {
+                if( msg.typetag == "f" ) {
+                    msg.getFloat(0) => dist_event.howClose;
                     dist_event.broadcast();
                 }
             }
@@ -26,6 +43,7 @@ public class Distancer {
     }
 
     fun static run() {
-        spork ~ keyboard_listener();
+        // spork ~ keyboard_listener();
+        spork ~ osc_listener();
     }
 }

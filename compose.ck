@@ -87,6 +87,9 @@ me.dir() + "wav/ascensore-2.wav",
 me.dir() + "wav/ascensore-3.wav",
 me.dir() + "wav/ascensore-4.wav"] @=> string files_ascensori[];
 
+// --caution-to-the-wind
+Std.system("/home/lift/dialoghi-ascensore-morto/sensore_vicinanza/rsense/target/release/rsense &");
+
 Ascensori a(files_ascensori);
 Distancer.run();
 
@@ -99,7 +102,7 @@ spork ~ r.change_scramble_ranges();
 spork ~ a.play_sample(0, 0, my_dac);
 while(true) {
     Distancer.dist_event => now;
-    (Distancer.dist_event.howClose/10.0) => float norm_dist;
-    <<<norm_dist, "">>>;
+    Distancer.dist_event.howClose => float norm_dist;
+    // <<<norm_dist, "">>>;
     norm_dist => r.duration_modifier;
 }
