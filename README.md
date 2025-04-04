@@ -1,15 +1,23 @@
-# Dialoghi con un ascensore morto
+# Dialogues with a Dead Elevator
 
-Codice sorgente e documenti del progetto artistico: "Dialoghi con un ascensore morto", un'installazione sonora.
+> *Dialoghi con un ascensore morto*
 
-Artisti: Giovanni Santosasi e Gianluca Rubino.
+Documents and source code for the project: "Dialoghi con un ascensore morto" (Dialogues with a Dead Elevator), a **sound installation**.
 
-## Soggetto
+Artists: Giovanni Santosasi e Gianluca Rubino.
 
-L’installazione prende spunto dalle registrazioni dei suoni emessi dall’ascensore del condominio in cui Giovanni Santostasi, uno degli artisti, ha vissuto per gran parte della sua vita.
+[Download](media/example_sample_1.mp3) or [play](https://soundcloud.com/freccialata/dialogues-dead-elevator?si=ce4c0469b77c427785f98d52daff029f&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing) an example.
 
-Con il passare degli anni, l’ascensore divenne sempre più rumoroso, generando alla fine un paesaggio sonoro composto di elementi riconoscibili, ma sempre variabili. Questi rumori prodotti dal vecchio "ammasso di ferraglia" possono apparire inquietanti, ma ora sono legati a ricordi nostalgici, poiché l'ascensore è stato sostituito. Questi rumori, infatti, rappresentano una connessione particolare con uno spazio artificiale che ha accompagnato la vita dell’artista, ma che oggi non esiste più. Durante le ultime fasi di attività, l'artista ha cattturato delle registrazioni di questo ascensore per mantenerne la memoria.
+How the installation will look like:
 
-Qundi, le vecchie registrazioni vengono rievocate in un'installazione sonora nel tentativo di instaurare un dialogo impossibile con il vecchio modello di ascensore. I suoni registrati sono trasformati e distorti grazie ad un sensore di distanza collocato in un nuovo ascensore in funzione. Questo sensore reagisce ai movimenti delle persone e all’apertura e chiusura delle porte, mutando le registrazioni audio di partenza. Il suono e la performance compongono così una sorta di rituale digitale, con lo scopo di ristabilire un legame con uno spazio ormai scomparso, ma che conserva ancora una forte connessione emotiva.
+![preview](media/preview_at_plai.jpg)
 
-Non a caso, le tracce registrate selezionate mostrano come i segni dell’invecchiamento del vecchio modello di ascensore si siano fatti sempre più invadenti e rumorosi, imponendo un panorama sonoro che ne rivela una storia, nonchè una imminente sostituzione.
+## Subject
+
+The installation is inspired by recordings of the sounds emitted by the elevator of the apartment building where Giovanni Santostasi, one of the artists, lived for most of his life.
+
+As the years passed, the elevator became louder and louder, eventually generating a soundscape composed of recognizable, but always variable, elements. These noises produced by the old "heap of scrap metal" may seem disturbing, but are now linked to nostalgic memories, since the elevator has been replaced. These noises, in fact, represent a particular connection with an artificial space that accompanied the artist's life, but which no longer exists today. During the last phases of activity, the artist captured recordings of this elevator to maintain its memory.
+
+Then, the old recordings are recalled in a sound installation in an attempt to establish an impossible dialogue with the old elevator model. The recorded sounds are transformed and distorted thanks to a distance sensor placed in a structure that evokes an elevator. This sensor reacts to the movements of people, changing the original audio recordings. Sound and performance thus form a sort of digital ritual, with the aim of re-establishing a bond with a space that has now disappeared, but which still retains a strong emotional connection.
+
+It is no coincidence that the selected recorded tracks show how the signs of aging of the old elevator model have become increasingly invasive and noisy, imposing a soundscape that reveals a history, as well as an imminent replacement.
